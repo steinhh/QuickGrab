@@ -14,9 +14,9 @@ file=~/screencapture/"$date".png
 idle_seconds=`idle_seconds`
 if (( $idle_seconds > $idle_threshold )) 
 then
-    echo "Idle: ${idle_seconds}s - not snapping"
+    echo "Idle: ${idle_seconds}s - not snapping: $file"
     touch "$file"
 else 
     quickgrab -file "$file"
-    echo "Grabbed $file"
+    echo "Grabbed: $file"
 fi
