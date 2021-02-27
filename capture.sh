@@ -7,11 +7,14 @@ function idle_seconds() {
 }
 
 cadence=120
-idle_threshold=$((20 * 60))
+idle_threshold=$((5 * 60))
 
 while [ 1 ]; do
-  date=`date "+%Y-%m-%d-%H:%M:%S"`
-  file=~/screencapture/"$date".png
+  date=`date "+%Y-%m-%d"`
+  dir=~/screencapture/$date
+  mkdir -p $dir
+  date_time=`date "+%Y-%m-%d-%H:%M:%S"`
+  file=$dir/$date_time.png
   idle_seconds=`idle_seconds`
   if (( $idle_seconds > $idle_threshold )) 
   then
