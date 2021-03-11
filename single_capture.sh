@@ -6,17 +6,19 @@ function idle_seconds() {
   echo ${float_seconds%.*}
 }
 
-cadence=120
-idle_threshold=$((20 * 60))
+idle_threshold=$((15 * 60))
 
-date=`date "+%Y-%m-%d-%H:%M:%S"`
-file=~/screencapture/"$date".png
+date=`date "+%Y-%m-%d"`
+dir=~/screencapture/$date
+mkdir -p $dir
+date_time=`date "+%Y-%m-%d-%H:%M:%S"`
+file=$dir/$date_time.png
 idle_seconds=`idle_seconds`
 if (( $idle_seconds > $idle_threshold )) 
 then
-    echo "Idle: ${idle_seconds}s - not snapping: $file"
-    touch "$file"
+  echo "Idle: ${idle_seconds}s - not snapping"
+  touch "$file"
 else 
-    quickgrab -file "$file"
-    echo "Grabbed: $file"
+  quickgrab -file "$file"
+  echo "Grabbed $file"
 fi
