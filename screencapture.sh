@@ -19,6 +19,6 @@ then
   echo "Idle: ${idle_seconds}s - not snapping"
   touch "$file"
 else 
-  quickgrab -file "$file"
+  $HOME/bin/shell/quickgrab -file "$file"
   echo "Grabbed $file"
 fi
