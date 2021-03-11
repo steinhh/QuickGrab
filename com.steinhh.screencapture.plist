@@ -7,7 +7,7 @@
 
   <key>ProgramArguments</key>
   <array>
-    <string>/Users/steinhh/bin/shell/screencapture.sh</string>
+    <string>/Users/steinhh/usr/local/src/QuickGrab/screencapture.sh</string>
   </array>
 
   <key>Nice</key>
